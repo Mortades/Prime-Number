@@ -54,25 +54,52 @@ def prime_check_v3(x):
     return answer
 
 
+def primechecklist():
+    x=1
+    primes = []
+    while 104743 not in primes:
+        check = 1
+        x = int(x)
+        if x < 2: #0,1 not primes and negative numbers not included in what our program was supposed to do
+            answer = 0
+        elif x == 2 and x == 3: #2 and 3 need exceptions in our program
+            answer = 1
+        else:
+            for i in range(2, int(x ** 0.5)):
+                check *= x % i
+                if check == 0:
+                    answer = 0
+                else:
+                    answer = 1
+        if answer == 1:
+            primes.append(x)
+            x+=1
+        else:
+            x+=1
+    print(len(primes))
+#my program thinks 104743-The 10001st prime is prime no. 10082
+primechecklist()
+
+
 
 # Run v1 and see run time
-tStart = time.time()
-for i in range(1000):
-    prime_check_v1(97)
-tEnd = time.time()
-print('Run time v1 = ',tEnd - tStart)
-
-tStart = time.time()
-for i in range(1000):
-    prime_check_v2(97)
-tEnd = time.time()
-print('Run time v2 = ',tEnd - tStart)
-
-tStart = time.time()
-for i in range(1000):
-    prime_check_v3(97)
-tEnd = time.time()
-print('Run time v3 = ',tEnd - tStart)
+# tStart = time.time()
+# for i in range(1000):
+#     prime_check_v1(97)
+# tEnd = time.time()
+# print('Run time v1 = ',tEnd - tStart)
+#
+# tStart = time.time()
+# for i in range(1000):
+#     prime_check_v2(97)
+# tEnd = time.time()
+# print('Run time v2 = ',tEnd - tStart)
+#
+# tStart = time.time()
+# for i in range(1000):
+#     prime_check_v3(97)
+# tEnd = time.time()
+# print('Run time v3 = ',tEnd - tStart)
 
 #Run prime number chekc v2 and check run time
 
