@@ -1,4 +1,4 @@
-import time
+import time #
 time.time()
 
 def prime_check_v1(x):
